@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 
 import userRoutes from "./routes/user.routes.js";
 import projectRoutes from "./routes/project.routes.js"
+import timeEntryRoutes from "./routes/timeEntry.routes.js"
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ try {
 
 app.use("/api/user", userRoutes);
 app.use("/api/project", projectRoutes)
+app.use("/api/timeEntry", timeEntryRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server Started on http://localhost:${PORT}`);

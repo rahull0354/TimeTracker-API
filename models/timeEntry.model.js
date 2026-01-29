@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const timeEntrySchema = new mongoose.Schema(
   {
@@ -17,28 +17,30 @@ const timeEntrySchema = new mongoose.Schema(
       required: [true, "Description is required"],
       trim: true,
     },
-    duration: {
-      type: Number,
-      required: [true, "Duration is required"],
-      min: [1, "Duration must be at least 1 minute"],
-    },
     startTime: {
       type: Date,
       required: [true, "Start time is required"],
     },
     endTime: {
       type: Date,
-      required: [true, "End time is required"],
     },
     date: {
       type: Date,
       required: [true, "Date is required"],
     },
+    totalTime: {
+      type: Number,
+    },
     status: {
         type: String,
-        enum: ["running", "completed", "paused"],
+        enum: ["running", "stopped", "paused", "resume", "completed"],
         default: "running"
-    }
+    },
+    sessions: [{
+      startTime: Date,
+      endTime: Date,
+      duration: Number // minutes
+    }]
   },
   { timestamps: true },
 );

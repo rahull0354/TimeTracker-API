@@ -30,6 +30,7 @@ const timeEntrySchema = new mongoose.Schema(
     },
     totalTime: {
       type: Number,
+      default: 0
     },
     status: {
         type: String,

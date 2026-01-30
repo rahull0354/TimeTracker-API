@@ -68,7 +68,7 @@ export const getTimeEntriesByDateRange = async (userId, startDate, endDate) => {
         "Date": new Date(entry.date).toLocaleDateString(),
         "Start Time": new Date(entry.startTime).toLocaleDateString(),
         "End Time": entry.endTime ? new Date(entry.endTime).toLocaleDateString() : "Running",
-        "Total Minutes": entry.totalTIme || 0,
+        "Total Minutes": entry.totalTime || 0,
         "Status": entry.status,
     }))
 }
